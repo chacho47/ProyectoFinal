@@ -2,6 +2,7 @@ import React from 'react';
 import carrusel0 from '../img/carrusel0.jpg';
 import carrusel2 from '../img/carrusel2.jpg';
 import carrusel3 from '../img/carrusel3.jpg';
+
 const Slider = () => {
     return (
         <section className='container'>
