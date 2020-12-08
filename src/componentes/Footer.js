@@ -70,7 +70,10 @@ const Footer = () => {
                     </div>
                 </div>
                 </div>
-                
+                <hr/>
+                <div className='Container justify-content text-center'>
+                    <p>Todos los derechos reservados - Comision 2i</p>
+                </div>
             </section>
         </footer>
     );
