@@ -1,39 +1,69 @@
-import React from 'react';
-import carrusel0 from '../img/carrusel0.jpg';
-import carrusel2 from '../img/carrusel2.jpg';
-import carrusel3 from '../img/carrusel3.jpg';
+import React from "react";
+import carrusel1 from "../img/carrusel1.jpg";
+import carrusel2 from "../img/carrusel2.jpg";
+import carrusel3 from "../img/carrusel3.jpg";
 
 const Slider = () => {
-    return (
-        <section className='container'>
-        <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+  return (
+    <section>
+      <div
+        id="carouselExampleIndicators"
+        className="carousel slide"
+        data-bs-ride="carousel"
+      >
         <ol className="carousel-indicators">
-          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+          <li
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+          ></li>
+          <li
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+          ></li>
+          <li
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+          ></li>
         </ol>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={carrusel0} class="d-block w-100" alt="imagen"/>
+            <img src={carrusel1} class="d-block w-100" alt="imagen" />
           </div>
           <div className="carousel-item">
-            <img src={carrusel2} class="d-block w-100" alt="imagen"/>
+            <img src={carrusel2} class="d-block w-100" alt="imagen" />
           </div>
           <div className="carousel-item">
-            <img src={carrusel3} class="d-block w-100" alt="imagen"/>
+            <img src={carrusel3} class="d-block w-100" alt="imagen" />
           </div>
         </div>
-        <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <a
+          className="carousel-control-prev"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-bs-slide="prev"
+        >
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
           <span className="visually-hidden"></span>
         </a>
-        <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <a
+          className="carousel-control-next"
+          href="#carouselExampleIndicators"
+          role="button"
+          data-bs-slide="next"
+        >
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
           <span className="visually-hidden"></span>
         </a>
       </div>
-      </section>
-      );
-}
- 
+    </section>
+  );
+};
+
 export default Slider;
