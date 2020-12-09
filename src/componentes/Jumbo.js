@@ -1,25 +1,32 @@
 import React from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
+import estetoscopio from "../img/estetoscopio.png";
 
 const Jumbo = () => {
   return (
-    <section>
+    <section className="py-3 asd">
       <div className="container">
-        <Jumbotron>
-          <h1>Mas de 4 decadas cuidando la salud de los tucumanos</h1>
-          <p>
-            This is a simple hero unit, a simple jumbotron-style component for
-            calling extra attention to featured content or information, mauricio
-            macri la puta que te pario. Hola soy torombolo y soy un ninio bueno
-            y me gustan los erizos.
-          </p>
-          <p>
-            <Button className="btn-warning" variant="primary">
-              Learn more
-            </Button>
-          </p>
-        </Jumbotron>
+        <div className="row">
+          <div className="col-md-4 text-center py-5">
+            <img src={estetoscopio} alt="estetoscopio" />
+          </div>
+          <div className="col-md-8">
+            <Jumbotron>
+              <h1><lead>Conoce a nuestros profesionales</lead></h1>
+              <hr/>
+              <p className='mb-3'>
+              Brindamos servicios médicos de la más alta calidad gracias a una nutrida cartilla de profesionales médicos con amplia trayectoria.
+              </p>
+              <p>
+                <Button className="btn-warning" variant="primary">
+                  Ver profesionales...
+                </Button>
+              </p>
+            </Jumbotron>
+          </div>
+        </div>
+        <hr/>
       </div>
     </section>
   );

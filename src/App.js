@@ -13,8 +13,9 @@ function App() {
     <div>
       <Navbar />
       <Slider />
-      <Jumbo />
+      <br/>
       <Presentacion />
+      <Jumbo />
       <Cards />
       <Footer />
     </div>
