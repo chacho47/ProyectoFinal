@@ -6,6 +6,7 @@ import Navbar from "./componentes/NavBar";
 import Slider from "./componentes/Slider";
 import Jumbo from './componentes/Jumbo';
 import Presentacion from './componentes/Presentacion';
+import Cards from "./componentes/Cards";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Slider />
       <Jumbo />
       <Presentacion />
+      <Cards />
       <Footer />
     </div>
   );
