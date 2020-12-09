@@ -11,7 +11,7 @@ import '../estilos/footer.css';
 const Footer = () => {
     return (
         <footer className='footer justify-content-center'>
-            <section className='bg-dark py-3 text-center prefooter'>
+            <section className='py-3 text-center prefooter'>
                 <div className='row'>
                     <div className='col-md-4 col-sm-6 mb-3'>
                         <img className='w-25' src={amanus} alt=""/>
@@ -33,11 +33,11 @@ const Footer = () => {
                     </div>
                 </div>
             </section>
-            <section className='asd text-dark'>
+            <section className='coral text-dark'>
                 <div className='container'>
                 <div className='row'>
                     <div className='col-lg-3 col-md-6 col-sm-12'>
-                        <h3 className='mb-3'>Clinica Favaloro</h3>
+                        <h3 className='mb-3'>T&S Medicina</h3>
                         <ul className='list-unstyled'>
                             <li>Inicio</li>
                             <li>Nuestra empresa</li>
@@ -77,6 +77,6 @@ const Footer = () => {
             </section>
         </footer>
     );
-};
+}
 
 export default Footer;

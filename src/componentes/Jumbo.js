@@ -5,7 +5,7 @@ import estetoscopio from "../img/estetoscopio.png";
 
 const Jumbo = () => {
   return (
-    <section className="py-3 asd">
+    <section className="py-3">
       <div className="container">
         <div className="row">
           <div className="col-md-4 text-center py-5">
