@@ -6,6 +6,7 @@ import lafarmacia from '../img/lafarmacia.png';
 import vallesalud from '../img/vallesalud.png';
 import emec from '../img/emec.png';
 import clinicasarmiento from '../img/clinicasarmiento.png';
+import '../estilos/footer.css';
 
 const Footer = () => {
     return (
@@ -71,7 +72,7 @@ const Footer = () => {
                 </div>
                 </div>
                 <hr/>
-                <div className='Container justify-content text-center'>
+                <div className='Container justify-content text-center asd'>
                     <p>Todos los derechos reservados - Comision 2i</p>
                 </div>
             </section>
