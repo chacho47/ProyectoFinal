@@ -4,7 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./componentes/Footer";
 import Navbar from "./componentes/NavBar";
 import Slider from "./componentes/Slider";
-import Jumbo from './componentes/Jumbo';
+import Jumbo from "./componentes/Jumbo";
+import Cards from "./componentes/Cards";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <Slider />
       <Jumbo />
+      <Cards />
       <Footer />
     </div>
   );
