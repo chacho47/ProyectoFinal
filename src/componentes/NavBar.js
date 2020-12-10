@@ -3,7 +3,7 @@ import logo1 from "../img/logo1.png";
 import "../estilos/navbar.css";
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg mi-nav">
+    <nav className="navbar navbar-expand-lg mi-nav ">
       <div className="container-fluid">
         <button
           className="navbar-toggler"
