@@ -28,13 +28,49 @@ const Slider = () => {
         </ol>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={carrusel1} class="d-block w-100" alt="imagen" />
+            <img
+              src={carrusel1}
+              className="d-block w-100"
+              alt="imagen"
+              height="532px"
+              width="960px"
+            />
+            <div class="carousel-caption d-none d-md-block text-info">
+              <h5>Third slide label</h5>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+            </div>
           </div>
           <div className="carousel-item">
-            <img src={carrusel2} class="d-block w-100" alt="imagen" />
+            <img
+              src={carrusel2}
+              className="d-block w-100"
+              alt="imagen"
+              height="532px"
+              width="960px"
+            />
+            <div class="carousel-caption d-none d-md-block text-info">
+              <h5>Third slide label</h5>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+            </div>
           </div>
           <div className="carousel-item">
-            <img src={carrusel3} class="d-block w-100" alt="imagen" />
+            <img
+              src={carrusel3}
+              className="d-block w-100"
+              alt="imagen"
+              height="532px"
+              width="960px"
+            />
+            <div class="carousel-caption d-none d-md-block text-info">
+              <h5>Third slide label</h5>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
+            </div>
           </div>
         </div>
         <a
