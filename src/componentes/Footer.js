@@ -10,27 +10,29 @@ import '../estilos/footer.css';
 
 const Footer = () => {
     return (
-        <footer className='footer justify-content-center'>
-            <section className='py-3 text-center prefooter'>
-                <div className='row'>
-                    <div className='col-md-4 col-sm-6 mb-3'>
-                        <img className='w-25' src={amanus} alt=""/>
+        <footer>
+            <section className='py-3 prefooter'>
+                <div className="container">
+                <div className='row justify-content-center'>
+                    <div className='col-lg-1 col-md-4 col-sm-6 mx-4 py-1'>
+                        <img className='w-100 efectoimg' src={amanus} alt=""/>
                     </div>
-                    <div className='col-md-4 col-sm-6 mb-3'>
-                        <img className='w-25' src={uno} alt=""/>
+                    <div className='col-lg-1 col-md-4 col-sm-6 mx-4 py-1'>
+                        <img className='w-100 efectoimg' src={uno} alt=""/>
                     </div>
-                    <div className='col-md-4 col-sm-6 mb-3'>
-                        <img className='w-25' src={lafarmacia} alt=""/>
+                    <div className='col-lg-1 col-md-4 col-sm-6 mx-4 py-1'>
+                        <img className='w-100 efectoimg' src={lafarmacia} alt=""/>
                     </div>
-                    <div className='col-md-4 col-sm-6'>
-                        <img className='w-25' src={vallesalud} alt=""/>
+                    <div className='col-lg-1 col-md-4 col-sm-6 mx-4 py12'>
+                        <img className='w-100 efectoimg' src={vallesalud} alt=""/>
                     </div>
-                    <div className='col-md-4 col-sm-6'>
-                        <img className='w-25' src={emec} alt=""/>
+                    <div className='col-lg-1 col-md-4 col-sm-6 mx-4 py-1'>
+                        <img className='w-100 efectoimg' src={emec} alt=""/>
                     </div>
-                    <div className='col-md-4 col-sm-6'>
-                        <img className='w-25' src={clinicasarmiento} alt=""/>
+                    <div className='col-lg-1 col-md-4 col-sm-6 mx-4 py-1'>
+                        <img className='w-100 efectoimg' src={clinicasarmiento} alt=""/>
                     </div>
+                </div>
                 </div>
             </section>
             <section className='coral text-dark'>

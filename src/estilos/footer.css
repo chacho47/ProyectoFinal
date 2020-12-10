@@ -11,3 +11,9 @@
 .prefooter {
   background-color: #f5f5f5;
 }
+
+.efectoimg:hover{
+    filter: opacity(50%);
+    transition: 150ms;
+    transform: scale(1.1);
+}
