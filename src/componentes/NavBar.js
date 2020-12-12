@@ -1,52 +1,43 @@
 import React from "react";
 import logo1 from "../img/logo1.png";
 import "../estilos/navbar.css";
+
 const Navbar = () => {
   return (
+<<<<<<< HEAD
     <nav className="navbar navbar-expand-lg mi-nav ">
+=======
+    <nav className="navbar navbar-expand-lg mi-nav">
+
+>>>>>>> chacho
       <div className="container-fluid">
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo03"
-          aria-controls="navbarTogglerDemo03"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <a className="navbar-brand mx-5" href="#">
+
+        <a className="navbar-brand" href="#">
           <img src={logo1} className="mx-2" />
           T&S Medicina
         </a>
-        <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Inicio
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Contacto
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-              >
-                Institucional
-              </a>
-            </li>
-          </ul>
-          <a className="nav-link ml-auto" type="submit">
-            Portal pacientes
-          </a>
-        </div>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <form>
+        <button className="btn btn-sm btn-secondary mx-1 efectoimg" type="button">
+          Registrarse
+        </button>
+        <button className="btn btn-primary mx-1 text-light efectoimg" type="button">
+          Inciar Sesion
+        </button>
+        </form>
+        
       </div>
     </nav>
   );
