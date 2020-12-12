@@ -35,6 +35,7 @@ function App() {
       <Jumbo />
       <Cards />
       <Footer />
+      <FormPaciente />
     </div>
   );
 }
