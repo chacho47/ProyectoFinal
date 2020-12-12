@@ -13,7 +13,7 @@ function App() {
   // States
   const [datos, setDatos] = useState({});
 
-  useEffect(() => {
+  useEffectgit (() => {
     consultarAPI();
   }, []);
 

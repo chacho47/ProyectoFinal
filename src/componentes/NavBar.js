@@ -4,12 +4,7 @@ import "../estilos/navbar.css";
 
 const Navbar = () => {
   return (
-<<<<<<< HEAD
     <nav className="navbar navbar-expand-lg mi-nav ">
-=======
-    <nav className="navbar navbar-expand-lg mi-nav">
-
->>>>>>> chacho
       <div className="container-fluid">
 
         <a className="navbar-brand" href="#">
