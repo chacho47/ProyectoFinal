@@ -15,3 +15,13 @@
   background-color: #0c7e86e1;
   color: white;
 }
+
+.btn-iniciarSesion{
+  background-color: #094183;
+}
+
+.efectoimg:hover{
+  filter: opacity(100%);
+  transition: 150ms;
+  transform: scale(1.1);
+}
