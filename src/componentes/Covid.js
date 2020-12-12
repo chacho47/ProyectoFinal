@@ -1,5 +1,5 @@
 import React from "react";
-import mapa from "../img/CardDeck/mapa.jpg";
+
 const Covid = (props) => {
   return (
     <section className="bg-dark d-flex justify-content-center mb-0">
@@ -7,7 +7,6 @@ const Covid = (props) => {
         <div className="mr-5 text-center">
           <h2>Argentina</h2>
           <h5>Covid-19</h5>
-          {/* <img src={mapa} alt="mapa argentino" /> */}
         </div>
         <div className="d-flex text-center">
           <div className="mx-5 text-warning">
