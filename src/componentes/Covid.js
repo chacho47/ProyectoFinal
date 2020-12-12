@@ -2,13 +2,13 @@ import React from "react";
 
 const Covid = (props) => {
   return (
-    <section className="bg-dark mb-0">
-      <div className="row ml-5 text-warning">
+    <section className="bg-dark d-flex justify-content-center mb-0">
+      <div className="row d-flex text-warning">
         <div className="mr-5 text-center">
           <h2>Argentina</h2>
           <h5>Covid-19</h5>
         </div>
-        <div className="d-flex justify-content-center text-center">
+        <div className="d-flex text-center">
           <div className="mx-5 text-warning">
             <h4>Infectados</h4>
             <h5>{props.datos.cases}</h5>
@@ -17,7 +17,7 @@ const Covid = (props) => {
             <h4>Recuperados</h4>
             <h5>{props.datos.recovered}</h5>
           </div>
-          <div className="mx-5 text-secondary">
+          <div className="mx-5 text-danger">
             <h4>Fallecidos</h4>
             <h5>{props.datos.deaths}</h5>
           </div>

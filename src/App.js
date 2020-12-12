@@ -8,12 +8,13 @@ import Jumbo from "./componentes/Jumbo";
 import Presentacion from "./componentes/Presentacion";
 import Cards from "./componentes/Cards";
 import Covid from "./componentes/Covid";
+import FormPaciente from "./componentes/FormPaciente";
 
 function App() {
   // States
   const [datos, setDatos] = useState({});
 
-  useEffectgit (() => {
+  useEffect (() => {
     consultarAPI();
   }, []);
 
