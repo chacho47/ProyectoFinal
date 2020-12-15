@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import logo1 from "../img/logo1.png";
 import "../estilos/navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -11,12 +12,13 @@ const Navbar = () => {
           T&S Medicina
         </a>
         <form>
-          <button
+          <Link
+            to={"/registrarme"}
             className="btn btn-sm btn-secondary mx-1 efectoimg"
             type="button"
           >
             Registrarse
-          </button>
+          </Link>
           <button
             className="btn btn-primary mx-1 text-light efectoimg"
             type="button"
