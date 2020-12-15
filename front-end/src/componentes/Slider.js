@@ -30,40 +30,46 @@ const Slider = () => {
           <div className="carousel-item active">
             <img
               src={carrusel1}
-              height="338px"
-              width="960px"
               className="d-block w-100"
               alt="imagen"
+              height="532px"
+              width="960px"
             />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Imagen1</h5>
-              <p>...</p>
+            <div class="carousel-caption d-none d-md-block text-info">
+              <h5>Third slide label</h5>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
             </div>
           </div>
           <div className="carousel-item">
             <img
               src={carrusel2}
-              height="338px"
-              width="960px"
               className="d-block w-100"
               alt="imagen"
+              height="532px"
+              width="960px"
             />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Imagen2</h5>
-              <p>...</p>
+            <div class="carousel-caption d-none d-md-block text-info">
+              <h5>Third slide label</h5>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
             </div>
           </div>
           <div className="carousel-item">
             <img
               src={carrusel3}
-              height="338px"
-              width="960px"
               className="d-block w-100"
               alt="imagen"
+              height="532px"
+              width="960px"
             />
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Imagen3</h5>
-              <p>...</p>
+            <div class="carousel-caption d-none d-md-block text-info">
+              <h5>Third slide label</h5>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
             </div>
           </div>
         </div>

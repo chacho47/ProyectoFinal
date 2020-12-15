@@ -1,23 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Link, NavLink } from "react-router-dom";
-import "./App.css";
+import React, { Fragment, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "./componentes/Footer";
-import Navbar from "./componentes/NavBar";
-import Slider from "./componentes/Slider";
-import Jumbo from "./componentes/Jumbo";
-import Presentacion from "./componentes/Presentacion";
-import Cards from "./componentes/Cards";
-import Covid from "./componentes/Covid";
+import Footer from "./Footer";
+import Navbar from "./NavBar";
+import Slider from "./Slider";
+import Jumbo from "./Jumbo";
+import Presentacion from "./Presentacion";
+import Cards from "./Cards";
+import Covid from "./Covid";
 
-function App() {
-  // States
+const Home = () => {
+  // State
   const [datos, setDatos] = useState({});
-
   useEffect(() => {
     consultarAPI();
   }, []);
-
   const consultarAPI = async () => {
     const respuesta = await fetch("https://covid19-api.org/api/status");
     const resultado = await respuesta.json();
@@ -26,17 +22,16 @@ function App() {
     setDatos(resultado[9]);
   };
   return (
-    <div>
+    <Fragment>
       <Navbar />
       <Covid datos={datos} />
       <Slider />
-      <br />
       <Presentacion />
       <Jumbo />
       <Cards />
       <Footer />
-    </div>
+    </Fragment>
   );
-}
+};
 
-export default App;
+export default Home;

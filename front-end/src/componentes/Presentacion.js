@@ -11,7 +11,7 @@ const Presentacion = () => {
         <div className="row text-center shadow p-3 mb-5 bg-white rounded">
           <div className="col-sm-12 col-md-4">
             <IconContext.Provider
-              value={{ style: { fontSize: "40px", color: "rgb(0, 123, 255)" } }}
+              value={{ style: { fontSize: "40px", color: "#00a8b3" } }}
             >
               <div>
                 <FaHospitalAlt />
@@ -27,7 +27,7 @@ const Presentacion = () => {
           </div>
           <div className="col-sm-12 col-md-4">
           <IconContext.Provider
-              value={{ style: { fontSize: "40px", color: "rgb(0, 123, 255)" } }}
+              value={{ style: { fontSize: "40px", color: "#00a8b3" } }}
             >
               <div>
                 <FaHeartbeat />
@@ -43,7 +43,7 @@ const Presentacion = () => {
           </div>
           <div className="col-sm-12 col-md-4">
           <IconContext.Provider
-              value={{ style: { fontSize: "40px", color: "rgb(0, 123, 255)" } }}
+              value={{ style: { fontSize: "40px", color: "#00a8b3" } }}
             >
               <div>
                 <FaBookReader />
