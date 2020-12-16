@@ -30,6 +30,9 @@ const Home = () => {
       <Jumbo />
       <Cards />
       <Footer />
+      <div>
+        <h1>PACIENTES</h1>
+    </div>
     </Fragment>
   );
 };

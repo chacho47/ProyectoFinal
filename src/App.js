@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "./App.css";
 import FormPaciente from "./componentes/FormPaciente";
 import Home from "./componentes/Home";
 
@@ -11,6 +10,7 @@ function App() {
         <Route path="/registrarme" component={FormPaciente} />
       </Switch>
     </BrowserRouter>
+    
   );
 }
 
