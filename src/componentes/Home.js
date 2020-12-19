@@ -5,7 +5,7 @@ import Navbar from "./NavBar";
 import Slider from "./Slider";
 import Jumbo from "./Jumbo";
 import Presentacion from "./Presentacion";
-import Cards from "./Cards";
+import Cards from "./Cards/index.js";
 import Covid from "./Covid";
 
 const Home = () => {

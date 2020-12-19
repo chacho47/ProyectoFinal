@@ -1,10 +1,11 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import "../estilos/cards.css";
-import mano from "../img/CardDeck/mano.jpg";
-import traumatologia from "../img/CardDeck/traumatologia.jpg";
-import valle from "../img/CardDeck/valle.jpg";
+import { Card, Button } from "react-bootstrap";
+import "./style.css";
+import mano from "../../img/CardDeck/mano.jpg";
+import traumatologia from "../../img/CardDeck/traumatologia.jpg";
+import valle from "../../img/CardDeck/valle.jpg";
+
+
 
 const Cards = () => {
   return (
