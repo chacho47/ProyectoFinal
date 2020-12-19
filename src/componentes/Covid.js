@@ -11,19 +11,19 @@ const Covid = (props) => {
         <div className="d-flex text-center">
           <div className="mx-5 text-warning">
             <h4>Infectados</h4>
-            <h5>{props.datos.cases}</h5>
+            <h5>{props.datos?.cases}</h5>
           </div>
           <div className="mx-5 text-success">
             <h4>Recuperados</h4>
-            <h5>{props.datos.recovered}</h5>
+            <h5>{props.datos?.recovered}</h5>
           </div>
           <div className="mx-5 text-danger">
             <h4>Fallecidos</h4>
-            <h5>{props.datos.deaths}</h5>
+            <h5>{props.datos?.deaths}</h5>
           </div>
           <div className="mx-5 text-white">
             <h4>Ultima actualización</h4>
-            <h5>{props.datos.last_update}</h5>
+            <h5>{props.datos?.last_update}</h5>
           </div>
         </div>
       </div>
