@@ -13,7 +13,10 @@ const Header = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const isLogged = true;
+  if( true  || true || console.log('asdad')) {
 
+  }
   return (
     <Navbar bg="info" expand="lg">
       <img src={logo1} alt="logo" />
@@ -36,9 +39,11 @@ const Header = () => {
             Link
           </NavLink>
         </Nav>
-        <Button variant="primary" onClick={handleShow}>
-          Inicie sesión
-        </Button>
+        { !isLogged && (
+          <Button variant="primary" onClick={handleShow}>
+            Inicie sesión
+          </Button>
+        )}
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>

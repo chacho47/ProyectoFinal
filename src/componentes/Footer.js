@@ -14,22 +14,22 @@ const Footer = () => {
       <section className="py-3 prefooter">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-1 col-md-4 col-sm-6 mx-4 py-1">
+            <div className="col-lg-1 col-md-2 col-sm-2 mx-4 py-1">
               <img className="w-100 efectoimg" src={amanus} alt="" />
             </div>
-            <div className="col-lg-1 col-md-4 col-sm-6 mx-4 py-1">
+            <div className="col-lg-1 col-md-2 col-sm-2 mx-4 py-1">
               <img className="w-100 efectoimg" src={uno} alt="" />
             </div>
-            <div className="col-lg-1 col-md-4 col-sm-6 mx-4 py-1">
+            <div className="col-lg-1 col-md-2 col-sm-2 mx-4 py-1">
               <img className="w-100 efectoimg" src={lafarmacia} alt="" />
             </div>
-            <div className="col-lg-1 col-md-4 col-sm-6 mx-4 py12">
+            <div className="col-lg-1 col-md-2 col-sm-2 mx-4 py12">
               <img className="w-100 efectoimg" src={vallesalud} alt="" />
             </div>
-            <div className="col-lg-1 col-md-4 col-sm-6 mx-4 py-1">
+            <div className="col-lg-1 col-md-2 col-sm-2 mx-4 py-1">
               <img className="w-100 efectoimg" src={emec} alt="" />
             </div>
-            <div className="col-lg-1 col-md-4 col-sm-6 mx-4 py-1">
+            <div className="col-lg-1 col-md-2 col-sm-2 mx-4 py-1">
               <img className="w-100 efectoimg" src={clinicasarmiento} alt="" />
             </div>
           </div>
@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="Container justify-content text-center aaa text-light ">
-          <p>
+          <p className="m-0">
             © Todos los derechos reservados - Salas Ignacio & Tortosa Nicolas -
             Comision 2 i
           </p>

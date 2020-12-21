@@ -1,6 +1,9 @@
 import React from "react";
 
 const Covid = (props) => {
+  const { last_update } = props;
+  const date = new Date(last_update);
+  // const formattedDate = date.get
   return (
     <section className="bg-dark d-flex justify-content-center mb-0">
       <div className="row d-flex text-warning">
