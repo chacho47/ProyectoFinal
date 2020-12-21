@@ -1,3 +1,29 @@
+#Logica:
+
+El admin es el unico que carga la informacion de los medicos, puede agregar, editar o eliminar los medicos (asi como en el crudbasico de la cafeteria agregabamos productos nuevos)
+
+el medico solo se logueara (si es que esta en el sistema)
+
+vera sus turnos
+
+aceptara o cancelara los turnos
+
+-
+-
+-
+
+El paciente logueado 
+podra elegir el medico segun especialidad
+eligira dia y horario
+motivo de consulta
+enviar solicitud de turno y sera aprobada o rechazada 
+cartelito de solicitud de turno enviada (opcional, segun mi criterio tiene sentido)
+opcional 2: el paciente podra ver qu turnos le quedan disponibles al medico
+
+medico logueado:
+vera sus turnos
+aceptara o rechazara turnos (opcional)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

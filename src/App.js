@@ -4,6 +4,8 @@ import Home from "./componentes/Home";
 import Footer from "./componentes/Footer";
 import Header from "./componentes/Header";
 import AdminUsuario from "./componentes/AdminUsuario";
+import PacienteTurnos from "./componentes/PacienteTurnos";
+import MedicoTurnos from "./componentes/MedicoTurnos";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/registrarme" component={FormPaciente} />
         <Route path="/lista-usuarios" component={AdminUsuario}/>
+        <Route path="/paciente-turnos" component={PacienteTurnos}/>
+        <Route path="/medico-turnos" component={MedicoTurnos}/>
       </Switch>
       <Footer />
     </BrowserRouter>

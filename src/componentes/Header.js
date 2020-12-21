@@ -39,12 +39,9 @@ const Header = () => {
             Link
           </NavLink>
         </Nav>
-        { !isLogged && (
           <Button variant="primary" onClick={handleShow}>
             Inicie sesión
           </Button>
-        )}
-
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Iniciar sesión</Modal.Title>
