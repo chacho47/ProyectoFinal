@@ -1,13 +1,30 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
 import "./style.css";
 import mano from "../../img/CardDeck/mano.jpg";
 import traumatologia from "../../img/CardDeck/traumatologia.jpg";
 import valle from "../../img/CardDeck/valle.jpg";
-
-
+import Card from "./Card.js";
 
 const Cards = () => {
+ 
+  const arregloCards = [
+    {
+      id: 1,
+      texto: "Cirugía de Mano, reconstructiva y de miembro superior",
+      img: mano,
+    },
+    {
+      id: 2,
+      texto: "Residencias Médicas 2020",
+      img: valle,
+    },
+    {
+      id: 3,
+      texto: "Incorporamos novedosa técnica de extracción de muestras al vacío",
+      img: traumatologia,
+    },
+  ];
+
   return (
     <section>
       <div className="container">
@@ -21,38 +38,7 @@ const Cards = () => {
         </a>
         <div className="container">
           <div className="row justify-content-center mb-5">
-            <div className="col-lg-4 col-md-6 text-center py-2">
-              <Card className="shadow" style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={mano} />
-                <Card.Body>
-                  <Card.Text>
-                    Cirugía de Mano, reconstructiva y de miembro superior
-                  </Card.Text>
-                  <Button variant="warning">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-lg-4 col-md-6 text-center py-2">
-              <Card className="shadow" style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={valle} />
-                <Card.Body>
-                  <Card.Text>Residencias Médicas 2020</Card.Text>
-                  <Button variant="warning">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-lg-4 col-md-6 text-center py-2">
-              <Card className="shadow" style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={traumatologia} />
-                <Card.Body>
-                  <Card.Text>
-                    Incorporamos novedosa técnica de extracción de muestras al
-                    vacío
-                  </Card.Text>
-                  <Button variant="warning">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-            </div>
+            {arregloCards.map(Card)}
           </div>
         </div>
       </div>
