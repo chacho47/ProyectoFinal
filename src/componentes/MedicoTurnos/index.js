@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const MedicoTurnos = () => {
-    return (
-        <div>
-            <h1>Desde Medico Turnos</h1>
-        </div>
-    );
+  return (
+    <div>
+      <h1>Desde MedicoTurnos</h1>
+    </div>
+  );
 };
 
 export default MedicoTurnos;

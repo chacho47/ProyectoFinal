@@ -6,6 +6,7 @@ import Header from "./componentes/Header";
 import AdminUsuario from "./componentes/AdminUsuario";
 import PacienteTurnos from "./componentes/PacienteTurnos";
 import MedicoTurnos from "./componentes/MedicoTurnos";
+import AltaMedico from "./componentes/AltaMedico";
 
 function App() {
   return (

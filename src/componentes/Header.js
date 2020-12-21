@@ -14,8 +14,7 @@ const Header = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const isLogged = true;
-  if( true  || true || console.log('asdad')) {
-
+  if (true || true || console.log("asdad")) {
   }
   return (
     <Navbar bg="info" expand="lg">
@@ -39,9 +38,18 @@ const Header = () => {
             Link
           </NavLink>
         </Nav>
-          <Button variant="primary" onClick={handleShow}>
-            Inicie sesión
-          </Button>
+
+        <Button variant="primary" onClick={handleShow}>
+          Inicie sesión
+        </Button>
+        <Link
+          to="/registrarme"
+          className="btn bg-secondary text-light ml-3"
+          variant="secondary"
+        >
+          Registrarme
+        </Link>
+
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Iniciar sesión</Modal.Title>
@@ -57,19 +65,20 @@ const Header = () => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-              </Form.Group>
-              <Button variant="info" type="submit">
-                Ingresar
-              </Button>
-              <Link
-                to="/registrarme"
-                className="btn bg-secondary text-light ml-3"
-                variant="secondary"
-              >
-                Registrarme
-              </Link>
+
+              <div className="d-flex row justify-content-center">
+                <Button className="ml-3 mr-auto" variant="info" type="submit">
+                  Ingresar
+                </Button>
+                <p className="mt-2">No tienes cuenta? </p>
+                <Link
+                  className="mr-3 mt-2 ml-1"
+                  to="/registrarme"
+                  variant="secondary"
+                >
+                  Registrate
+                </Link>
+              </div>
             </Form>
           </Modal.Body>
         </Modal>
