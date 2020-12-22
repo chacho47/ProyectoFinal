@@ -1,12 +1,10 @@
 import React, { Fragment } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Navbar from "./NavBar.js";
 
 const FormPaciente = () => {
   return (
     <Fragment>
-      <Navbar/>
       <section>
         <div className="dflex justify-content-center row">
           <div className="mx-5">
@@ -24,20 +22,17 @@ const FormPaciente = () => {
           </div>
           <div>
             <Form className="mx-5">
-              <Form.Label className="text-muted">
-                Seleccione el tipo de Documento*
-              </Form.Label>
+              <Form.Label className="text-muted">Tipo de Documento*</Form.Label>
               <Form.Control as="select">
                 <option>DNI</option>
-                <option>Libreta civica</option>
-                <option>Charmander yo te elijo</option>
+                <option>LE</option>
+                <option>LC</option>
+                <option>CI</option>
+                <option>Pasaporte</option>
               </Form.Control>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label className="text-muted">Email</Form.Label>
                 <Form.Control type="email" placeholder="Email@ejemplo.com" />
-                <Form.Text className="text-muted">
-                  No sea gil y no pongas macana
-                </Form.Text>
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
