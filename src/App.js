@@ -15,9 +15,10 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/registrarme" component={FormPaciente} />
-        <Route path="/lista-usuarios" component={AdminUsuario}/>
-        <Route path="/paciente-turnos" component={PacienteTurnos}/>
-        <Route path="/medico-turnos" component={MedicoTurnos}/>
+        <Route path="/lista-usuarios" component={AdminUsuario} />
+        <Route path="/paciente-turnos" component={PacienteTurnos} />
+        <Route path="/medico-turnos" component={MedicoTurnos} />
+        <Route path="/alta-medico" component={AltaMedico} />
       </Switch>
       <Footer />
     </BrowserRouter>
