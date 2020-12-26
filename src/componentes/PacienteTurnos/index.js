@@ -2,30 +2,73 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import Swal from 'sweetalert2';
+import ListGroup from 'react-bootstrap/ListGroup';
+import MostrarTurno from './MostrarTurno';
 
-const PacienteTurnos = () => {
+const PacienteTurnos = (props) => {
   //states
   const [nombrePaciente, setNombrePaciente] = useState("");
-  const [emailPaciente, setEmailPaciente] = useState("");
+  const [fecha, setFecha] = useState("");
   const [especialidad, setEspecialidad] = useState("");
   const [nombreMedico, setNombreMedico] = useState("");
   const [consulta, setConsulta] = useState("");
+  const [hora, setHora] = useState("");
   const [error, setError] = useState(false);
 
-  const handleSubmit = (e)=> {
+  const handleSubmit = async (e)=> {
       e.preventDefault();
-      
       //validation
       if (
           nombrePaciente.trim() === "" ||
-          emailPaciente.trim() === "" ||
+          fecha.trim() === "" ||
+          fecha.trim() === "" ||
           especialidad.trim() === "" ||
           nombreMedico.trim()=== ""){
               setError(true)
               return;
           }
           setError(false);
+
+
+          //agregar nueva consulta en la API
+          //crear el objeto enviar
+          const datosTurno={
+              nombrePaciente,
+              especialidad,
+              nombreMedico,
+              fecha,
+              hora,
+              consulta,
+          };
+
+          try {
+              //aqui me conecto con mi api
+              const resultado = await fetch('http://localhost:4000/turnos',{
+                  method: 'POST',
+                  headers: {
+                      "Content-Type": "application/json"
+                  },
+                  body: JSON.stringify(datosTurno)
+              })
+
+              console.log(resultado);
+              if(resultado.status === 200){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+              }
+              
+          } catch (error) {
+              console.log(error)
+          }
   }
+
+  if(props.turno.length === 0) return null;
 
   return (
     <section className="container mx-auto">
@@ -43,15 +86,6 @@ const PacienteTurnos = () => {
                 onChange={(e) => setNombrePaciente(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId="exampleForm.ControlInput1">
-              <Form.Label>Correo electronico:</Form.Label>
-              <Form.Control 
-              type="email" 
-              placeholder="nombre@ejemplo.com" 
-              value={emailPaciente}
-              onChange = {(e)=> setEmailPaciente(e.target.value)}
-              />
-            </Form.Group>
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Elija especialidad:</Form.Label>
               <Form.Control 
@@ -67,6 +101,7 @@ const PacienteTurnos = () => {
                 <option>Dermatologia</option>
               </Form.Control>
             </Form.Group>
+
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Elija Medico:</Form.Label>
               <Form.Control 
@@ -74,7 +109,7 @@ const PacienteTurnos = () => {
               value={nombreMedico}
                 onChange = {(e)=> setNombreMedico(e.target.value)}>
                     <option hidden selected>
-                  Elija un medico
+                  Seleccionar
                 </option>
                 <option>Dr. Lopez Rosetti</option>
                 <option>Dr. Favaloro</option>
@@ -82,6 +117,25 @@ const PacienteTurnos = () => {
                 <option>Dr. Rivera</option>
               </Form.Control>
             </Form.Group>
+
+            <Form.Group controlId="exampleForm.ControlInput1">
+              <Form.Label>Fecha</Form.Label>
+              <Form.Control 
+              type="date" 
+              value={fecha}
+              onChange = {(e)=> setFecha(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="exampleForm.ControlInput1">
+              <Form.Label>Hora</Form.Label>
+              <Form.Control 
+              type="time" 
+              value={hora}
+              onChange = {(e)=> setHora(e.target.value)}
+              />
+            </Form.Group>
+            
             <Form.Group controlId="exampleForm.ControlTextarea1">
               <Form.Label>
                 Escriba su motivo de su consulta brevemente:
@@ -102,8 +156,9 @@ const PacienteTurnos = () => {
           </Form>
         </div>
 
-        <div className="col-lg-4 py-3">
-          <h1>Sus Turnos:</h1>
+        <div className="col-lg-6">
+        <h1>Sus Turnos:</h1>
+            <MostrarTurno turno={props.turno}/>
         </div>
       </div>
     </section>
