@@ -1,8 +1,50 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 const FormPaciente = () => {
+  const [state, setState] = useState({
+    data: {
+      dni: "",
+      numero: "",
+      email: "",
+      contrasena: "",
+      repitaContrasena: "",
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postRegister();
+    setState({
+      data: {
+        dni: "",
+        numero: "",
+        email: "",
+        contrasena: "",
+        repitaContrasena: "",
+      },
+    });
+  };
+
+  const postRegister = async () => {
+    const response = await fetch("http://localhost:4000/pacientes", {
+      method: "POST",
+      body: JSON.stringify(state.data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const res = await response.json();
+  };
+
+  const handleOnChange = (e) => {
+    let name = e.target.name;
+    let newData = state.data;
+    newData[name] = e.target.value;
+    setState({ data: newData });
+  };
+
   return (
     <Fragment>
       <section>
@@ -23,30 +65,73 @@ const FormPaciente = () => {
           <div>
             <Form className="mx-5">
               <Form.Label className="text-muted">Tipo de Documento*</Form.Label>
-              <Form.Control as="select">
+              <Form.Control
+                value={state.data.dni}
+                onChange={handleOnChange}
+                className="text-muted"
+                as="select"
+                name="dni"
+              >
+                <option hidden selected>
+                  Seleccione tipo...
+                </option>
                 <option>DNI</option>
                 <option>LE</option>
                 <option>LC</option>
                 <option>CI</option>
                 <option>Pasaporte</option>
               </Form.Control>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group>
+                <Form.Label className="text-muted">
+                  Numero de Documento
+                </Form.Label>
+                <Form.Control
+                  value={state.data.numero}
+                  onChange={handleOnChange}
+                  type="text"
+                  placeholder="37497753"
+                  name="numero"
+                />
+              </Form.Group>
+              <Form.Group>
                 <Form.Label className="text-muted">Email</Form.Label>
-                <Form.Control type="email" placeholder="Email@ejemplo.com" />
+                <Form.Control
+                  type="email"
+                  placeholder="Email@ejemplo.com"
+                  controlId="formBasicEmail"
+                  value={state.data.email}
+                  onChange={handleOnChange}
+                  name="email"
+                />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group>
                 <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="password" placeholder="Contraseña" />
+                <Form.Control
+                  type="password"
+                  placeholder="Contraseña"
+                  controlId="formBasicPassword"
+                  value={state.data.contrasena}
+                  onChange={handleOnChange}
+                  name="contrasena"
+                />
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Repita Contraseña</Form.Label>
-                <Form.Control type="password" placeholder="Repita Contraseña" />
+                <Form.Control
+                  type="password"
+                  placeholder="Repita Contraseña"
+                  name="repitaContrasena"
+                  value={state.data.repitaContrasena}
+                  onChange={handleOnChange}
+                />
               </Form.Group>
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-              </Form.Group>
-              <Button className="btn-info" variant="primary" type="submit">
+              <Button
+                onClick={handleSubmit}
+                className="btn-info"
+                variant="primary"
+                type="submit"
+              >
                 Submit
               </Button>
             </Form>

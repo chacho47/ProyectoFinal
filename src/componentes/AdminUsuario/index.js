@@ -2,23 +2,24 @@ import React, { useEffect, useState } from "react";
 import { Table, FormCheck } from "react-bootstrap";
 
 const AdminUsuario = () => {
-  const [usuarios, setUsuarios] = useState([]);
+  // Info de la cuenta de los pacientes que se registran
+  const [pacientes, setPacientes] = useState([]);
   useEffect(() => {
     fetch("http://localhost:4000/pacientes")
       .then((res) => res.json())
       .then((res) => {
-        setUsuarios(res.filter((user) => user.nombre));
+        setPacientes(res.filter((user) => user.nombre));
       });
   }, []);
 
-  const handleChange = event => {
-    console.log(event.target.checked)
-    const {id, checked}= event.target;
-    fetch(`http://localhost:4000/pacientes/${id}`,{
-      method: 'PUT',
-      body: `estado: ${checked}`
-    })
-  }
+  const handleChange = (event) => {
+    console.log(event.target.checked);
+    const { id, checked } = event.target;
+    fetch(`http://localhost:4000/pacientes/${id}`, {
+      method: "PUT",
+      body: `estado: ${checked}`,
+    });
+  };
 
   return (
     <div>
@@ -34,13 +35,18 @@ const AdminUsuario = () => {
             </tr>
           </thead>
           <tbody>
-            {usuarios.map(({ nombre, _id, medico, estado }, index) => (
+            {pacientes.map(({ nombre, _id, medico, estado }, index) => (
               <tr key={_id}>
                 <td>{index}</td>
                 <td>{nombre}</td>
                 <td>{medico}</td>
                 <td>
-                  <FormCheck checked={estado} id={_id} type="switch" onChange={handleChange}/>
+                  <FormCheck
+                    checked={estado}
+                    id={_id}
+                    type="switch"
+                    onChange={handleChange}
+                  />
                 </td>
               </tr>
             ))}
