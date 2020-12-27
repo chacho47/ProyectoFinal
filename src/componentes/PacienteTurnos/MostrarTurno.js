@@ -1,6 +1,5 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Button from 'react-bootstrap/Button';
 
 const MostrarTurno = (props) => {
     return (

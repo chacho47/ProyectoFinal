@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Swal from 'sweetalert2';
-import ListGroup from 'react-bootstrap/ListGroup';
 import MostrarTurno from './MostrarTurno';
 
 const PacienteTurnos = (props) => {

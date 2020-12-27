@@ -9,11 +9,26 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
 const Header = () => {
+  const [state, setState] = useState({
+    user: "",
+    password: ""
+  })
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const isLogged = true;
+  const loginOnClick = (e)=> {
+    e.preventDefault();
+    let user = state;
+
+  }
+
+  const handleOnChange = (e) => {
+    let name = e.target.name;
+
+  }
+
   if (true || true || console.log("asdad")) {
   }
   return (
@@ -58,12 +73,23 @@ const Header = () => {
             <Form>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control 
+                name = "user"
+                value = {state.user}
+                onChange={handleOnChange}
+                type="email" 
+                placeholder="Enter email" 
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control 
+                name="password"
+                value = {state.password}
+                onChange={handleOnChange}
+                type="password" 
+                placeholder="Password" />
               </Form.Group>
 
               <div className="d-flex row justify-content-center">
