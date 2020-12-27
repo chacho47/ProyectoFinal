@@ -35,12 +35,6 @@ const Slider = () => {
               height="532px"
               width="960px"
             />
-            <div class="carousel-caption d-none d-md-block text-info">
-              <h5>Third slide label</h5>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </div>
           </div>
           <div className="carousel-item">
             <img
@@ -50,12 +44,7 @@ const Slider = () => {
               height="532px"
               width="960px"
             />
-            <div class="carousel-caption d-none d-md-block text-info">
-              <h5>Third slide label</h5>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </div>
+            
           </div>
           <div className="carousel-item">
             <img
@@ -65,12 +54,6 @@ const Slider = () => {
               height="532px"
               width="960px"
             />
-            <div class="carousel-caption d-none d-md-block text-info">
-              <h5>Third slide label</h5>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </div>
           </div>
         </div>
         <a

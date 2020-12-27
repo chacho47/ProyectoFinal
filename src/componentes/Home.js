@@ -27,9 +27,6 @@ const Home = () => {
       <Presentacion />
       <Jumbo />
       <Cards />
-      <div>
-        <h1>PACIENTES</h1>
-      </div>
     </Fragment>
   );
 };
