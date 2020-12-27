@@ -9,13 +9,71 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
 const Header = () => {
+  const [state, setState] = useState({
+    data: {
+      username: "",
+      password: "",
+    },
+  });
+  const [paciente, setPaciente] = useState({});
   const [show, setShow] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const isLogged = true;
-  if (true || true || console.log("asdad")) {
-  }
+
+  // Eventos
+  const loginOnClick = (e) => {
+    e.preventDefault();
+    postLogin();
+  };
+
+  const handleOnChange = (e) => {
+    let name = e.target.name;
+    let user = state.data;
+    user[name] = e.target.value;
+    setState({ data: user });
+  };
+
+  const postLogin = async () => {
+    const response = await fetch("http://localhost:4000/pacientes/login", {
+      method: "POST",
+      body: JSON.stringify(state.data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const res = await response.json();
+    try {
+      if (res.username) {
+        setPaciente({ res });
+        setState({
+          data: {
+            username: "",
+            password: "",
+          },
+        });
+        setIsLogged(true);
+        handleClose();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const putLogout = async () => {
+    const response = await fetch("http://localhost:4000/pacientes/login", {
+      method: "PUT",
+      body: JSON.stringify(paciente),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const res = await response.json();
+    setPaciente({});
+    setIsLogged(false);
+  };
+
   return (
     <Navbar bg="info" expand="lg">
       <img src={logo1} alt="logo" />
@@ -38,17 +96,24 @@ const Header = () => {
             Link
           </NavLink>
         </Nav>
-
-        <Button variant="primary" onClick={handleShow}>
-          Inicie sesión
-        </Button>
-        <Link
-          to="/registrarme"
-          className="btn bg-secondary text-light ml-3"
-          variant="secondary"
-        >
-          Registrarme
-        </Link>
+        {!isLogged ? (
+          <div>
+            <Button variant="primary" onClick={handleShow}>
+              Inicie sesión
+            </Button>
+            <Link
+              to="/registrarme"
+              className="btn bg-secondary text-light ml-3"
+              variant="secondary"
+            >
+              Registrarme
+            </Link>
+          </div>
+        ) : (
+          <Button variant="primary" onClick={putLogout}>
+            Cerrar sesión
+          </Button>
+        )}
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -58,16 +123,32 @@ const Header = () => {
             <Form>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control
+                  name="username"
+                  onChange={handleOnChange}
+                  value={state.data.username}
+                  type="email"
+                  placeholder="Enter email"
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control
+                  name="password"
+                  value={state.data.password}
+                  onChange={handleOnChange}
+                  type="password"
+                  placeholder="Password"
+                />
               </Form.Group>
-
               <div className="d-flex row justify-content-center">
-                <Button className="ml-3 mr-auto" variant="info" type="submit">
+                <Button
+                  onClick={loginOnClick}
+                  className="ml-3 mr-auto"
+                  variant="info"
+                  type="submit"
+                >
                   Ingresar
                 </Button>
                 <p className="mt-2">No tienes cuenta? </p>
