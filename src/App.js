@@ -11,11 +11,25 @@ import AltaMedico from "./componentes/AltaMedico";
 
 function App() {
   const [turno, setTurno] = useState([]);
+  const [usuario, setUsuario] = useState({});
 
   useEffect(() => {
     //llamar a la api
     consultarAPI();
+    obtenerUsuario();
   }, []);
+
+  const obtenerUsuario = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+    let res = await fetch("http://localhost:4000/pacientes/login", {
+      headers: {
+        token
+      }
+    });
+    res = await res.json();
+    setUsuario(res);
+  }
 
   const consultarAPI = async () => {
     try {
@@ -33,7 +47,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
+      <Header usuario={usuario} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/registrarme" component={FormPaciente} />
@@ -41,7 +55,7 @@ function App() {
         <Route path="/altaMedico" component={AltaMedico} />
         <Route
           path="/paciente-turnos"
-          component={() => <PacienteTurnos turno={turno} />}
+          component={() => <PacienteTurnos turno={turno} paciente={usuario} />}
         />
         <Route
           path="/medico-turnos"

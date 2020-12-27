@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo1 from "../img/logo1.png";
 import "../estilos/navbar.css";
 import { NavLink, Link } from "react-router-dom";
@@ -8,7 +8,7 @@ import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
-const Header = () => {
+const Header = ({usuario}) => {
   const [state, setState] = useState({
     data: {
       username: "",
@@ -17,7 +17,11 @@ const Header = () => {
   });
   const [paciente, setPaciente] = useState({});
   const [show, setShow] = useState(false);
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(!!usuario.username);
+
+  useEffect(()=>{
+    setIsLogged(!!usuario.username);
+  },[usuario]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -45,8 +49,8 @@ const Header = () => {
     });
     const res = await response.json();
     try {
-      if (res.username) {
-        setPaciente({ res });
+      localStorage.setItem('token', res.token);
+      if (res.token) {
         setState({
           data: {
             username: "",
@@ -72,6 +76,7 @@ const Header = () => {
     const res = await response.json();
     setPaciente({});
     setIsLogged(false);
+    localStorage.removeItem('token');
   };
 
   return (
@@ -95,6 +100,15 @@ const Header = () => {
           >
             Link
           </NavLink>
+          { isLogged && (
+            <NavLink
+              className="text-light p-2 bd-highlight"
+              activeClassName="active"
+              to="/paciente-turnos"
+            >
+              Turnos
+            </NavLink>
+          )}
         </Nav>
         {!isLogged ? (
           <div>

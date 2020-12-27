@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Swal from 'sweetalert2';
 import MostrarTurno from './MostrarTurno';
 
-const PacienteTurnos = (props) => {
+const PacienteTurnos = ({paciente, turno}) => {
   //states
   const [nombrePaciente, setNombrePaciente] = useState("");
   const [fecha, setFecha] = useState("");
@@ -14,6 +14,16 @@ const PacienteTurnos = (props) => {
   const [consulta, setConsulta] = useState("");
   const [hora, setHora] = useState("");
   const [error, setError] = useState(false);
+  const [medicos, setMedicos] = useState([]);
+
+  useEffect(() => {
+    
+    fetch('http://localhost:4000/medicos?especialidad=' + especialidad)
+    .then(res => res.json())
+    .then(res => {
+      setMedicos(res);
+    })
+  }, [especialidad])
 
   const handleSubmit = async (e)=> {
       e.preventDefault();
@@ -39,6 +49,7 @@ const PacienteTurnos = (props) => {
               fecha,
               hora,
               consulta,
+              emailPaciente: paciente.username
           };
 
           try {
@@ -67,7 +78,7 @@ const PacienteTurnos = (props) => {
           }
   }
 
-  if(props.turno.length === 0) return null;
+  if(turno.length === 0) return null;
 
   return (
     <section className="container mx-auto">
@@ -76,6 +87,11 @@ const PacienteTurnos = (props) => {
           <Form onSubmit={handleSubmit}>
             <h1>Datos del Paciente</h1>
             {error ? <Alert variant="danger">Todos los campos son obligatorios</Alert>: null }
+            { paciente.username && (
+              <div>
+                {paciente.username}
+              </div>
+            ) }
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Nombre y apellido:</Form.Label>
               <Form.Control
@@ -110,10 +126,9 @@ const PacienteTurnos = (props) => {
                     <option hidden selected>
                   Seleccionar
                 </option>
-                <option>Dr. Lopez Rosetti</option>
-                <option>Dr. Favaloro</option>
-                <option>Dr. Hibbert</option>
-                <option>Dr. Rivera</option>
+                { medicos.map( medico => (
+                  <option key={medico._id} >{medico.nombre}</option>
+                ) ) }
               </Form.Control>
             </Form.Group>
 
@@ -157,7 +172,7 @@ const PacienteTurnos = (props) => {
 
         <div className="col-lg-6">
         <h1>Sus Turnos:</h1>
-            <MostrarTurno turno={props.turno}/>
+            <MostrarTurno turnos={turno}/>
         </div>
       </div>
     </section>

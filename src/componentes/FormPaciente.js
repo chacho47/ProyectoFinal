@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
@@ -13,8 +13,12 @@ const FormPaciente = () => {
     },
   });
 
+  const formRef = useRef();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = formRef.current;
+    if(!form.checkValidity()) return;
     postRegister();
     setState({
       data: {
@@ -63,7 +67,7 @@ const FormPaciente = () => {
             </p>
           </div>
           <div>
-            <Form className="mx-5">
+            <Form className="mx-5" ref={formRef}>
               <Form.Label className="text-muted">Tipo de Documento*</Form.Label>
               <Form.Control
                 value={state.data.dni}
@@ -71,6 +75,7 @@ const FormPaciente = () => {
                 className="text-muted"
                 as="select"
                 name="dni"
+                required
               >
                 <option hidden selected>
                   Seleccione tipo...
@@ -91,6 +96,7 @@ const FormPaciente = () => {
                   type="text"
                   placeholder="37497753"
                   name="numero"
+                  required
                 />
               </Form.Group>
               <Form.Group>
@@ -102,6 +108,7 @@ const FormPaciente = () => {
                   value={state.data.email}
                   onChange={handleOnChange}
                   name="email"
+                  required
                 />
               </Form.Group>
 
@@ -114,6 +121,7 @@ const FormPaciente = () => {
                   value={state.data.contrasena}
                   onChange={handleOnChange}
                   name="contrasena"
+                  required
                 />
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
@@ -124,6 +132,7 @@ const FormPaciente = () => {
                   name="repitaContrasena"
                   value={state.data.repitaContrasena}
                   onChange={handleOnChange}
+                  required
                 />
               </Form.Group>
               <Button

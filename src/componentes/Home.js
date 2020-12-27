@@ -7,11 +7,14 @@ import Cards from "./Cards/index.js";
 import Covid from "./Covid";
 
 const Home = () => {
+
   // State
   const [datos, setDatos] = useState({});
+
   useEffect(() => {
     consultarAPI();
   }, []);
+
   const consultarAPI = async () => {
     const respuesta = await fetch("https://covid19-api.org/api/status");
     const resultado = await respuesta.json();
@@ -20,6 +23,7 @@ const Home = () => {
     );
     setDatos(datosArgentina);
   };
+  
   return (
     <Fragment>
       <Covid datos={datos} />
