@@ -32,8 +32,7 @@ const Slider = () => {
               src={carrusel1}
               className="d-block w-100"
               alt="imagen"
-              height="532px"
-              width="960px"
+              
             />
           </div>
           <div className="carousel-item">
@@ -41,8 +40,7 @@ const Slider = () => {
               src={carrusel2}
               className="d-block w-100"
               alt="imagen"
-              height="532px"
-              width="960px"
+              
             />
             
           </div>
@@ -51,8 +49,7 @@ const Slider = () => {
               src={carrusel3}
               className="d-block w-100"
               alt="imagen"
-              height="532px"
-              width="960px"
+              
             />
           </div>
         </div>
