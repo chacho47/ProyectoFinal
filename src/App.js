@@ -15,10 +15,9 @@ function App() {
 
   useEffect(() => {
     //llamar a la api
-    consultarAPI();
     obtenerUsuario();
   }, []);
-
+  
   const obtenerUsuario = async () => {
     const token = localStorage.getItem("token");
     if (!token) return;
@@ -29,15 +28,16 @@ function App() {
     });
     res = await res.json();
     setUsuario(res);
+    consultarAPI(res.username);
   }
 
-  const consultarAPI = async () => {
+  const consultarAPI = async (username) => {
     try {
       //operacion GET
-      const respuesta = await fetch("http://localhost:4000/turnos");
-      // console.log(respuesta);
+      const respuesta = await fetch("http://localhost:4000/turnos?email="+ username);
+      
       const resultado = await respuesta.json();
-      // console.log(resultado);
+      
       //guardar datos en el state
       setTurno(resultado);
     } catch (error) {
@@ -51,8 +51,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/registrarme" component={FormPaciente} />
-        <Route path="/lista-usuarios" component={AdminUsuario} />
-        <Route path="/altaMedico" component={AltaMedico} />
+        <Route exact path="/admin" component={AdminUsuario} />
+        <Route exact path="/altaMedico" component={AltaMedico} />
         <Route
           path="/paciente-turnos"
           component={() => <PacienteTurnos turno={turno} paciente={usuario} />}

@@ -15,7 +15,6 @@ const PacienteTurnos = ({paciente, turno}) => {
   const [hora, setHora] = useState("");
   const [error, setError] = useState(false);
   const [medicos, setMedicos] = useState([]);
-
   useEffect(() => {
     
     fetch('http://localhost:4000/medicos?especialidad=' + especialidad)
@@ -54,6 +53,7 @@ const PacienteTurnos = ({paciente, turno}) => {
 
           try {
               //aqui me conecto con mi api
+              console.log(datosTurno)
               const resultado = await fetch('http://localhost:4000/turnos',{
                   method: 'POST',
                   headers: {
@@ -78,7 +78,7 @@ const PacienteTurnos = ({paciente, turno}) => {
           }
   }
 
-  if(turno.length === 0) return null;
+  //if(turno.length === 0) return null;
 
   return (
     <section className="container mx-auto">

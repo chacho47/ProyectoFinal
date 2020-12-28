@@ -28,7 +28,7 @@ const Header = ({usuario}) => {
 
   // Eventos
   const loginOnClick = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     postLogin();
   };
 
