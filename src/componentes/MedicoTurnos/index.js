@@ -5,9 +5,8 @@ const MedicoTurnos = (props) => {
   return (
     <>
     <div>
-      <h1>Desde MedicoTurnos</h1>
+      <h1>Desde Medico Turnos</h1>
     </div>
-    <MostrarTurno turno={props.turno}/>
     </>
   );
 };

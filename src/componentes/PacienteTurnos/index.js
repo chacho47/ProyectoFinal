@@ -64,6 +64,7 @@ const PacienteTurnos = ({paciente, turno}) => {
 
               console.log(resultado);
               if(resultado.status === 200){
+                
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -72,13 +73,12 @@ const PacienteTurnos = ({paciente, turno}) => {
                     timer: 1500
                   })
               }
-              
           } catch (error) {
               console.log(error)
           }
   }
 
-  if(turno.length === 0) return null;
+  
 
   return (
     <section className="container mx-auto">

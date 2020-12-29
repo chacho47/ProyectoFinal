@@ -7,23 +7,29 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import {withRouter} from 'react-router-dom';
 
-const Header = ({usuario}) => {
+const Header = ({usuario, history}) => {
   const [state, setState] = useState({
     data: {
       username: "",
       password: "",
     },
   });
+
+
   const [paciente, setPaciente] = useState({});
   const [show, setShow] = useState(false);
   const [isLogged, setIsLogged] = useState(!!usuario.username);
+  const [isMedic, setIsMedic] = useState(false);
+
 
   useEffect(()=>{
     setIsLogged(!!usuario.username);
   },[usuario]);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {setShow(false);
+    }
   const handleShow = () => setShow(true);
 
   // Eventos
@@ -39,33 +45,88 @@ const Header = ({usuario}) => {
     setState({ data: user });
   };
 
-  const postLogin = async () => {
-    const response = await fetch("http://localhost:4000/pacientes/login", {
-      method: "POST",
-      body: JSON.stringify(state.data),
+  const postLogin =  () => {
+    if (isMedic){ postLoginMedico()
+    }else{postLoginPaciente()} ;
+   }
+
+ const postLoginPaciente = async ()=>{
+  const response = await fetch("http://localhost:4000/pacientes/login", {
+    method: "POST",
+    body: JSON.stringify(state.data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const res = await response.json();
+  try {
+    localStorage.setItem('token', res.token);
+    if (res.token) {
+      setState({
+        data: {
+          username: "",
+          password: "",
+        },
+      });
+      setIsLogged(true);
+      handleClose();
+    }
+  } catch (error) {
+    console.log(error);
+}
+ }
+
+ const postLoginMedico = async ()=>{
+  const response = await fetch("http://localhost:4000/medicos/login", {
+    method: "POST",
+    body: JSON.stringify(state.data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const res = await response.json();
+  try {
+    localStorage.setItem('tokenMedico', res.token);
+    if (res.token) {
+      setState({
+        data: {
+          username: "",
+          password: "",
+        },
+      });
+      setIsLogged(true);
+      handleClose();
+    }
+  } catch (error) {
+    console.log(error);
+}
+ }
+
+  const putLogout = async () => {
+    if(isMedic){putLoguoutMedico()}else{putLogoutPaciente()}
+  };
+
+  const putLoguoutMedico = async ()=>{
+    const response = await fetch("http://localhost:4000/medicos/login", {
+      method: "PUT",
+      body: JSON.stringify(paciente),
       headers: {
         "Content-Type": "application/json",
       },
     });
     const res = await response.json();
-    try {
-      localStorage.setItem('token', res.token);
-      if (res.token) {
-        setState({
-          data: {
-            username: "",
-            password: "",
-          },
-        });
-        setIsLogged(true);
-        handleClose();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    setPaciente({});
+    setIsLogged(false);
+    setIsMedic(false)
+    localStorage.removeItem('tokenMedico');
+    history.push('/')
 
-  const putLogout = async () => {
+  }
+
+
+  const putLogoutPaciente = async () => {
     const response = await fetch("http://localhost:4000/pacientes/login", {
       method: "PUT",
       body: JSON.stringify(paciente),
@@ -77,30 +138,29 @@ const Header = ({usuario}) => {
     setPaciente({});
     setIsLogged(false);
     localStorage.removeItem('token');
+    history.push('/')
   };
+
+const handleMedic = ()=>{
+setIsMedic(true)
+handleShow();
+}
+
+const handlePaciente = ()=>{
+  setIsMedic(false)
+  handleShow();
+  }
 
   return (
     <Navbar bg="info" expand="lg">
       <img src={logo1} alt="logo" />
-      <Navbar.Brand className="ml-3">T&S Medicina</Navbar.Brand>
+      <NavLink className="ml-3 text-light p-2"activeClassName="active"
+            to="/"><h3>T&S Medicina</h3></NavLink>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <NavLink
-            className="text-light p-2 bd-highlight"
-            activeClassName="active"
-            to="/"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            className="text-light p-2 bd-highlight"
-            activeClassName="active"
-            to="/registrarme"
-          >
-            Link
-          </NavLink>
-          { isLogged && (
+          
+          { isLogged? !isMedic?(
             <NavLink
               className="text-light p-2 bd-highlight"
               activeClassName="active"
@@ -108,11 +168,21 @@ const Header = ({usuario}) => {
             >
               Turnos
             </NavLink>
-          )}
+          ):(<NavLink
+            className="text-light p-2 bd-highlight"
+            activeClassName="active"
+            to="/medico-turnos"
+          >
+            Mire sus Turnos
+          </NavLink>):(<div></div>)}
         </Nav>
+        
         {!isLogged ? (
           <div>
-            <Button variant="primary" onClick={handleShow}>
+            <Button className='mr-3' variant="warning" onClick={handleMedic}>
+              Soy medico
+            </Button>
+            <Button variant="primary" onClick={handlePaciente}>
               Inicie sesión
             </Button>
             <Link
@@ -182,4 +252,4 @@ const Header = ({usuario}) => {
   );
 };
 
-export default Header;
+export default withRouter (Header);

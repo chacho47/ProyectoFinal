@@ -16,7 +16,6 @@ const MostrarTurno = ({turnos}) => {
                  <h4>{turno.hora}</h4>
                  <h4>{turno.consulta}</h4>
              </a>
-             
              ))}
          </div>
         </ListGroup>

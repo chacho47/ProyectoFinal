@@ -15,30 +15,45 @@ function App() {
 
   useEffect(() => {
     //llamar a la api
-    consultarAPI();
     obtenerUsuario();
   }, []);
 
   const obtenerUsuario = async () => {
     const token = localStorage.getItem("token");
-    if (!token) return;
-    let res = await fetch("http://localhost:4000/pacientes/login", {
-      headers: {
-        token
-      }
-    });
-    res = await res.json();
-    setUsuario(res);
+    const tokenMedico = localStorage.getItem("tokenMedico");
+    if (token) {
+      let res = await fetch("http://localhost:4000/pacientes/login", {
+        headers: {
+          token
+        }
+      });
+      res = await res.json();
+      setUsuario(res);
+      console.log(res)
+        consultarAPI(res.username);
+      
+    } else if (tokenMedico) {
+      let res = await fetch("http://localhost:4000/medicos/login", {
+        headers: {
+          token
+        }
+      });
+      res = await res.json();
+      setUsuario(res);
+      console.log(res)
+    }
+    
+    
   }
 
-  const consultarAPI = async () => {
+  const consultarAPI = async (username) => {
     try {
       //operacion GET
-      const respuesta = await fetch("http://localhost:4000/turnos");
-      // console.log(respuesta);
+      const respuesta = await fetch("http://localhost:4000/turnos?email="+ username);
+      
       const resultado = await respuesta.json();
-      // console.log(resultado);
-      //guardar datos en el state
+      
+      
       setTurno(resultado);
     } catch (error) {
       console.log(error);
