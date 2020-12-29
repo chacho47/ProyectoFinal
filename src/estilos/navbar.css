@@ -1,0 +1,27 @@
+.mi-nav {
+  padding: 0px !important;
+  background-color: #00a8b3;
+}
+
+.mi-nav .navbar-brand {
+  color: white;
+}
+.mi-nav .nav-link {
+  color: white;
+  padding: 20px;
+}
+
+.mi-nav .nav-link:hover {
+  background-color: #0c7e86e1;
+  color: white;
+}
+
+.btn-iniciarSesion{
+  background-color: #094183;
+}
+
+.efectoimg:hover{
+  filter: opacity(100%);
+  transition: 150ms;
+  transform: scale(1.1);
+}

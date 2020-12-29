@@ -1,0 +1,16 @@
+.novedades{
+    margin-bottom: 30px;
+    position: relative;
+    color: #000;
+    font-weight: 300;
+    font-size: 30px;
+    display: inline-block;
+}
+
+.vernovedades{
+    float: right;
+    color: #00b3c1;
+    font-weight: 300;
+    display: block;
+    font-size: 18px;
+}

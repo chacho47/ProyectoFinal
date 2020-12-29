@@ -1,0 +1,18 @@
+.btn {
+    font-size:1.4rem;
+}
+.fecha-alta {
+    font-family: 'Staatliches', cursive;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.contacto p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+.list-group-item:hover {
+    background: white;
+}
+form {
+    border-radius: .3rem;
+}
